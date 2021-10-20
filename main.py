@@ -33,7 +33,7 @@ def numar_minim (l,k):
     :return: Returnam cel mai mic numar care are ultima cifra egala cu o cifra citita de la tastatura
     '''
 
-    maximul=none
+    maximul=None
     minimul=None
     for y in l:
 
@@ -89,6 +89,7 @@ def test_super_prim():
 
 def main():
     test_numereNegativeNenule()
+    test_numar_minim()
     l=[]
 
     while True:
