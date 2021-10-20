@@ -33,18 +33,51 @@ def numar_minim (l,k):
     :return: Returnam cel mai mic numar care are ultima cifra egala cu o cifra citita de la tastatura
     '''
 
-    c=0
+    maximul=none
     minimul=None
     for y in l:
-        c=y%10
-        if c==k and (minimul is None or y>minimul):
+
+        if y%10 ==k:
             minimul=y
-    return minimul
+        if maximul is None or minimul<maximul:
+            maximul=minimul
+    return maximul
 
 
 def test_numar_minim ():
-    assert numar_minim ([1, 6, 34, 68, 40, 48, 20] , 8) == 48
-    assert numar_minim ([1, 2, 3],0) == []
+    assert numar_minim ([28,38,0] ,8) == 28
+    assert numar_minim ([1, 2, 3],0) is None
+
+
+def super_prim(l):
+    '''
+    Determinam numerele superprime
+    :param l: lista de numere intregi
+    :return: Returnam lista numerele superprime
+    '''
+    rezultat=[]
+    nr=0
+    for x in l:
+        while x>0 and ok==1:
+            d=0
+            for i in range(2,len(l//2),1):
+                if x%i == 0:
+                    d=1
+            if d>0 :
+                ok=0
+            x=x//10
+        if ok == 1:
+            rezultat.append (x)
+            nr=nr+1
+
+
+
+def test_super_prim():
+    assert super_prim ([239 , 0]) == 239
+    assert super_prim ([22,24]) == []
+
+
+
 
 
 
@@ -55,10 +88,14 @@ def test_numar_minim ():
 
 
 def main():
+    test_numereNegativeNenule()
     l=[]
+
     while True:
         print("1.Citire lista")
         print("2.Afișarea tuturor numerelor negative nenule din listă")
+        print("3.Afișarea celui mai mic număr care are ultima cifră egală cu o cifră citită de la tastatură")
+        print("4.Afișarea tuturor numerelor din listă care sunt superprime.")
         print("a. Afisare lista")
         print("x. Iesire")
 
@@ -79,11 +116,11 @@ def main():
 
         elif optiune == "3":
             k=int(input("Dati un nr: "))
-            minimul= numar_minim(l,k)
-            if max is None:
+            maximul= numar_minim(l,k)
+            if maximul is None:
                 print ("Nu exista")
             else:
-                print (minimul)
+                print (maximul)
 
 
         elif optiune == "a":
