@@ -96,7 +96,6 @@ def main():
         print("1.Citire lista")
         print("2.Afișarea tuturor numerelor negative nenule din listă")
         print("3.Afișarea celui mai mic număr care are ultima cifră egală cu o cifră citită de la tastatură")
-        print("4.Afișarea tuturor numerelor din listă care sunt superprime.")
         print("a. Afisare lista")
         print("x. Iesire")
 
