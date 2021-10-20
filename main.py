@@ -24,6 +24,36 @@ def test_numereNegativeNenule ():
     assert numereNegativeNenule ([1, 2, 3]) == []
 
 
+
+def numar_minim (l,k):
+    '''
+    Determinam cel mai mic numar care are ultima cifra egala cu o cifra citita de la tastatura
+    :param l: Lista de numere intregi
+    :param k: Numarul citit de la tastatura
+    :return: Returnam cel mai mic numar care are ultima cifra egala cu o cifra citita de la tastatura
+    '''
+
+    c=0
+    minimul=None
+    for y in l:
+        c=y%10
+        if c==k and (minimul is None or y>minimul):
+            minimul=y
+    return minimul
+
+
+def test_numar_minim ():
+    assert numar_minim ([1, 6, 34, 68, 40, 48, 20] , 8) == 48
+    assert numar_minim ([1, 2, 3],0) == []
+
+
+
+
+
+
+
+
+
 def main():
     l=[]
     while True:
@@ -41,10 +71,25 @@ def main():
 
         if optiune == "1":
             l=citire_lista()
+
+
         elif optiune == "2":
             print(numereNegativeNenule(l))
+
+
+        elif optiune == "3":
+            k=int(input("Dati un nr: "))
+            minimul= numar_minim(l,k)
+            if max is None:
+                print ("Nu exista")
+            else:
+                print (minimul)
+
+
         elif optiune == "a":
             print(l)
+
+
         elif optiune == "x":
             break
         else:
